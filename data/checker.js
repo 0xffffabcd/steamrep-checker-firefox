@@ -12,8 +12,8 @@ var trusted = '<img alt="trusted" src="data:image/png;base64,iVBORw0KGgoAAAANSUh
 function createInfoBox(title) {
 
     var infoBox =
-        '<div class="profile_customization">'
-            + '    <div class="profile_customization_header ellipsis">'
+        '<div id="src_profile_customization" class="profile_customization">'
+            + '    <div id="profile_customization_header"  class="profile_customization_header ellipsis">'
             + '    ' + title
             + '    </div>'
             + '    <div class="profile_customization_block">'
@@ -61,8 +61,8 @@ function createScammerWarningDialog() {
 function tagUser(tagType, reputation) {
     switch (tagType) {
         case 'scammer':
-            $('#sr_rep').html(reputation);
-            $('#sr_rep').addClass('scammer');
+            $('#src_rep').html(reputation);
+            $('#src_rep').addClass('scammer');
 
             $('.playerAvatar.profile_header_size').css('background', 'red');
             $('div.profile_header_summary > div.persona_name').addClass('scammer');
@@ -70,8 +70,8 @@ function tagUser(tagType, reputation) {
 
             break;
         case 'caution':
-            $('#sr_rep').text(reputation);
-            $('#sr_rep').addClass('caution');
+            $('#src_rep').text(reputation);
+            $('#src_rep').addClass('caution');
 
             $('.playerAvatar.profile_header_size').css('background', 'orange');
             $('div.profile_header_summary > div.persona_name').addClass('caution');
@@ -79,8 +79,8 @@ function tagUser(tagType, reputation) {
 
             break;
         case 'trusted':
-            $('#sr_rep').text(reputation);
-            $('#sr_rep').addClass('trusted');
+            $('#src_rep').text(reputation);
+            $('#src_rep').addClass('trusted');
 
             $('.playerAvatar.profile_header_size').css('background', 'lime');
             $('div.profile_header_summary > div.persona_name').addClass('trusted');
@@ -88,8 +88,8 @@ function tagUser(tagType, reputation) {
 
             break;
         default:
-            $('#sr_rep').text('No special rep (there might be pending reports against this user)');
-            break;
+            $('#src_rep').text('No special rep (there might be pending reports against this user)');
+			break;
     }
 }
 
@@ -107,7 +107,6 @@ function handleRep(reputation) {
     }
     else if (reputation.search(/caution/i) > -1) {
         tagUser('caution', reputation)
-
     }
 }
 
@@ -121,14 +120,13 @@ function querySteamRep(sid64) {
         .done(function (xml, textStatus, jqxhr) {
             srResponse = jqxhr.responseJSON;
 
-            $('#sr_rep').attr('title', srResponse.steamrep.reputation);
+            $('#src_rep').attr('title', srResponse.steamrep.reputation);
             handleRep(srResponse.steamrep.reputation);
 
         })
         .fail(function (e) {
-            $('#sr_rep').text('Error communicating with SteamRep.com. Click here to visit the website.');
+            $('#src_rep').text('Error communicating with SteamRep.com. Click here to visit the website.');
         });
-
 }
 
 function getReputation() {
@@ -141,26 +139,23 @@ function getReputation() {
         .done(function (xml) {
             var sid64 = $(xml).find("steamID64").text();
 
-            $('#sr_rep').attr('href', 'http://steamrep.com/profiles/' + sid64);
+            $('#src_rep').attr('href', 'http://steamrep.com/profiles/' + sid64);
 
-            $('#steamrep_checker').append('<p><b>Permalink : </b><a  href="http://steamcommunity.com/profiles/' + sid64 + '">http://steamcommunity.com/profiles/' + sid64 + '</a></p>');
-            $('#steamrep_checker').append('<p><b>Pending reports : </b><a  href="http://forums.steamrep.com/search/search/?keywords=' + sid64 + '&o=date">Search SteamRep Forum</a></p>');
-            $('#steamrep_checker').append('<p><label for="sid64tb">SteamID64 : </label><input id="sid64tb" type="text" value="' + sid64 + '" readonly /></p>');
+            $('#steamrep_checker').append('<p><b>Permalink : </b><a id="src_profile_permalink" href="http://steamcommunity.com/profiles/' + sid64 + '">http://steamcommunity.com/profiles/' + sid64 + '</a></p>');
+            $('#steamrep_checker').append('<p><b>Pending reports : </b><a id="src_pending_reports" href="http://forums.steamrep.com/search/search/?keywords=' + sid64 + '&o=date">Search SteamRep Forum</a></p>');
+            $('#steamrep_checker').append('<p><label for="src_sid64tb">SteamID64 : </label><input id="src_sid64tb" type="text" value="' + sid64 + '" readonly /></p>');
 
             querySteamRep(sid64);
         })
         .fail(function (e) {
-            $('#sr_rep').text('Error getting the SteamID64');
+            $('#src_rep').text('Error getting the SteamID64');
         });
 }
 
 function setLoadingStatus() {
     $('#steamrep_checker').append(
-        '<p><b>Reputation : </b><a href="#" id="sr_rep"> ' + loadingImage + '&nbsp; Checking SteamRep...</a></p>');
-
+        '<p><b>Reputation : </b><a href="#" id="src_rep"> ' + loadingImage + '&nbsp; Checking SteamRep...</a></p>');
 }
-
-console.log("SteamRep Checker: started");
 
 var re = new RegExp("steamcommunity.com/(?:id|profiles)/[a-zA-Z0-9_]+[/]{0,1}$");
 
