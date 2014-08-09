@@ -1,0 +1,47 @@
+#steamrep_checker p {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#sid64tb {
+    text-align: center;
+}
+
+.ui-dialog {
+    z-index: 500 !important;
+}
+
+.ui-widget-overlay {
+    z-index: 499 !important;
+}
+
+.default {
+    font-weight: bold !important;
+}
+
+.scammer {
+    color: red !important;
+    font-weight: bold !important;
+}
+
+.trusted {
+    color: lime !important;
+    font-weight: bold !important;
+}
+
+.caution {
+    color: orange !important;
+    font-weight: bold !important;
+}
+
+.loading {
+    border: 0px !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* fix for long header_real_name */
+
+.header_real_name {
+    height: 42px !important;
+}

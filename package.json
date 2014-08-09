@@ -1,0 +1,16 @@
+{
+    "name": "steamrep-checker",
+    "title": "SteamRep Checker",
+    "icon": "icons/icon.png",
+    "icon64": "icons/icon64.png",
+    "fullName": "SteamRep Checker",
+    "id": "jid1-9QxvV0gtqiySgg",
+    "description": "This extension checks the reputation of a Steam user on SteamRep.",
+    "author": "Po1nter (http://steamcommunity.com/profiles/76561198025281321)",
+    "license": "MIT",
+    "permissions": {
+        "cross-domain-content": ["http://steamcommunity.com/", "https://steamcommunity.com/", "https://steamrep.com/"],
+        "private-browsing": true
+    },
+    "version": "0.3"
+}
