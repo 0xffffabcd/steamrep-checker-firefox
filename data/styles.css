@@ -45,3 +45,9 @@
 .header_real_name {
     height: 42px !important;
 }
+
+.src_icon {
+    vertical-align: middle;
+    border: 0;
+    margin-right: 3px;
+}
