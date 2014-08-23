@@ -9,8 +9,8 @@
     "author": "Po1nter (http://steamcommunity.com/profiles/76561198025281321)",
     "license": "MIT",
     "permissions": {
-        "cross-domain-content": ["http://steamcommunity.com/", "https://steamcommunity.com/", "https://steamrep.com/"],
+        "cross-domain-content": ["http://steamcommunity.com/", "https://steamcommunity.com/", "https://steamrep.com/","http://forums.steamrep.com/"],
         "private-browsing": true
     },
-    "version": "0.3"
+    "version": "0.4"
 }

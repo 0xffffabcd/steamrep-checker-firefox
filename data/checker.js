@@ -13,8 +13,9 @@ var trusted = '<img alt="trusted" src="data:image/png;base64,iVBORw0KGgoAAAANSUh
 
 var dota2bp = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACI0lEQVQ4jcWTTUiUYRDHf8+8777rrmup+Ekmll2CpBdCurWBEFIQZkuUUdahg5VQGQRF1KGCiA4Rktitq0LEhlC3iBJPonmwIJLQ3Ehz3S3X/Xifp4PuSgch8NDAHGaY+TEz/EcZY9iIyYa6AfXxZOcDoOJfiqOJ+EA0ER/Kx67rYqdHRyJAQ2EkgbI9O8HxEx8ZxcupAuAAdLz9Nht5EV+M5nO24/x9A8syVN+8g1TXkW5pRmuDv6yE1HwSrZVzv6FmUL6ayPOfiegKwLcKUCAKUGtAv19T+fgZEtrMzKk2vBwAzsPGmkERInMQtXq2lV/yBe3Syu4eSs9fodh1kdp6VFEQnwPO/sOo4hKK3d3oiffo5RRiYbVWhI76areMiW1ryruvETh2Dm96CpPNYtVtA0DH58HLYXIZvNg0SuewbZN3Z1fIX2PbNjgtbejv0yTuXQYDvqZmpLyK1NAAgY6LmF8Jkr13MQYsa2W9dwup/keffzwVEYPyF2HSy4gyiBjyy0peJWIhYhALxIKZTHb4zIdYN4AoBbmxYWRrI8ETXQSOdCL1O1buqsAs/UZq6yk6dBwrGCDpebOnx2LtiZzOFABLvbfwPo0TOHsVZ99Bsm9eYrJpAJYH+0F7BC/cRkKbMjcm59onkplYQYkLrdu/FIQkFmhvXSU+mVrsuj4535ePw+Ewtt209zVQtW7Xqi3m9PirVKwvXL2Wc10X9d+/8Q94RcdReethkQAAAABJRU5ErkJggg==';
 var tf2bp = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACqklEQVQ4jY2TT2hcZRTFf/d7b5LJQtNYUINJSSOiFmO1/kGk2FYUS8X4r6BoF122OxduRExdCa7ElUtBF2IXrSBF7KJhEhC0VpukNHHI1EwymZkyk8m/yZSZ9953XExMbQ3ihbu5fOfc79x7j42MjDj+Z2QyGZ/JZG6phdl86RHA/gtoZkiyRx97/Nrqcm3t8uTUTYLOXUO/Adv+wieeZrNBYGBBSrGLRnu6UsP39/c2cgslAIInnn/5I+csCAJn8jL5xMIwNJ/E9tSD/fb+8aP29pFDVigUrdxIBvp3D+5LlubPGMTLa3Wc1O7U3ek48uwQQwP3gIzudMjJd17jrh13cn78F1bW60i4ddd9eM+hN74Z6L+vY3dfL05eNOrrvHLgaY6+dIC7d/ZwY2ONB3b1Ys6Yzs3x5dnzXCsvIy8kuZVgx/DDB1//arDv3pQd++CzaHj/3vDNwwdxzkiSBO+Fc0YQBHgvojjixKnPUSqNJACE+Z5W9Wsng4k/cuQXS0hicibH6R9GuTg1gyTK1SW+PXeBVuLx0lZKYm5hoeIQZIs1cvNFAH6fnuXcT1P8PDGNJIrXK3w3dgnCTnzi2zK81BWtjtVnf/0wbLP9Y3cC3X4WMiSx+Uyhj4vZ0TPvzi+WW+HmYIjjBICudAcb9XXkN7UKfLsrIMksirNjxwLfKv5ZrOC8RBCEXM3lEfDqC/v5+ORbCG0NzNPWncjUmL14qjyfy1y4dLV9iV7CDMYnsuw8+yN7HxqkUlultrLG5EyO/GK5TSL57mjp+ztuFD6dKlW2RNvwe5/EgDNBkiQ0W02CIMQ5I2pFOOfo7EqrI2nmy+Onnyxcr9bmSpWbXuiozu7720wpIL2dKTbgxeeeqX4xyi1ggHDPYN+V7TC3x2KhoMtXpv9V/wuK9XdGY8l5yAAAAABJRU5ErkJggg==';
-var sr = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVQ4jWNgGAWMSOz/2OQ/YRHnQ9LHhKaZEQ2jaIJpRDaUiYFCwILGR3YuIwMRgGphADMMw+/YNCEDksIAXyD+R8MwFxFlyEgHAL8tEjJm/DP7AAAAAElFTkSuQmCC';
+var sr = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAACbSURBVDhPzZAxDsMgEATzKvMcXkDhiuqUzo/wO6MEV2Rg0QnRROm8umIxOz7uHvVP3Rcws+ckvpScP/t+nSdVjkMx1ICcc0pJZ9c7RkoeEl6+AbFLZ9cMzH50CCEIw+tiDq0dEDkBkGJIv7aNAUhTiqEBuIRhvEObfppwBZjeO/iTihkl34Cxyy72qwt+7O9GjenrXjv81O2AWr8SpaYaXbOUwAAAAABJRU5ErkJggg==';
 var st = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC30lEQVQ4jX2TT2gddRDHP/Pb3ezb3ff6+p5tovGlr1LBWBtrK8UeFLGH4sUcvHqqeFA0KuIfCAVTULx5UOtBRZHqSURM01YIhRrb6qVKsAhiDTSHWqwmJCZ5m/3t7zceNi3SgwPfwwzzHWa+MyMAo6Ojd9VqtY/CMBwxxjT5H1PVJWvtz3mePzU5OfmrDA4O7up2t33f6QzVjTEEQYCIICI3E1FVSudQ7xGRtbyXHwyyLPt4cWFhFyK0223StEZZOowxCFQwgqpSS2JcWeKcpyiKSER2Gu/9wwpcnp/nwMGHePXwGI1GhnMO532F0tFoNHht/AUee/wA3nucc3jv9xhVrasqSRqz+4EOA9tSXjp8iLRew1qLtZasnvLK+HMMbK+xpZNiQoNzjqIo4iBJkglVpbQl35z4lpH9t7Jj+Dbu3XMPP8zMEkUh4xMv0h5yzJw9x6dHT7CyvIa1Bba0SKvV0mpOg4jQ3tLg7c+eZu/9u1n+ow/jUpqdnO9mLvD5O2f4Z6mH947SOmxZIs1mU6+rLgiIckv/Jj48+Szb7+hi6GP2wm+8PzHN6vI6qopzjrIs8d4TOu8RBDFgEBRBPUSuxYpeQlxMfXOJLXJ6vRxVvSGicw7JskwRqiIibB1ocez4m9SGf+Lc9O9k9Zi9++9k8XIfE0+eYuHaKuo9ZbUFJEkSrW5G2Nrf4tjJI0R3n+f0V3O8+/wsRuCNLx9kZN8Qf83FvP7ENH//2UPV4bwicRyriJCkEZ+cfoZNO+c4O3WF98YusrxYICps7o858sU+hna0mf9lnbcO/Ui+WgAQGGNeVtU+W5SsuKv0epajYxdZWlgHVbwq+arl/PGr3D4c8/UHc1y5tLIholuTMAhPKTyKKIIQJwFFz6PoxiFXcVDCWoDNHVEUEQQhYmRajDH3AWeA6gtFuM4V1Rt0RFGtCm20vmSC8BEAjJGuGJkSkWsiov+FucnfyJkSkS7Av6mpYjg9G1MrAAAAAElFTkSuQmCC';
+var csgovalue = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjExR/NCNwAAAidJREFUOE99k81rE0EYxgWLgQpRUNJkk61k182X2c3ObnYTqibUFC2laA1S0pNQ0Fpq6xf1YC1FLLaI1BIQvAkePHoTvHgQ9FRBq39BD4rgyYNVMmmezmxs3G1aDz/YeT8enn3nnT25XM5gfGLUGLSFbdOBkwa9Mkjo5FlCy72E5m1rK89rPzIMLrDKgJvBooE3twlqT2zgaZMG4/VNHaZpumtXuQBXawXPFQm+PyT4XTWwVFFQykRQUEVc7pMweUZGMpl0C9S4ALfkBJhFrNxRUavqqPSICIfDSCQSUFXVgTfruu4WoB6B0X4NjWoaL8cUCIIATdNg23arwf39l6YATxy3dDwbjQPLcUyUROhJmcUyOGHrLXYVMAwDX+9JoI8kYEnCz4V21uYkx9GOAvxg6cfweVrE+oKIWHcX4tEIErLootuZwTYXTQF+NW8nQvg1H8TGYhAfroewcs3Lq0vC9gH+E7AsCxd7j+L91QDw4BDGCwFU8iGM5IUWZUvY3QE/cBeL5yPA/AGMF7uc60un0x4IIe5mrwBnoCeN9dn9+DLld2ayFf8PXgFu73E5iMacD+/G/BguxB1n2WwWfXkVU6elHX/Bs8qGQbA8dBh/ZjqwMbsXP6b34dstH+jdDqzd8IFoHmfOKrc9Jj7tU5kjuN9/EC+GO/H8QidmSn4QOYBYLOaudR6TyWh7zsw6ZYOjiqLUo9FoXZbleiqV4kvH87yW9eTMTcvcxGoKglUoAAAAAElFTkSuQmCC';
 
 function createInfoBox(title) {
 
@@ -95,14 +96,15 @@ function tagUser(tagType, reputation) {
 
             break;
         default:
-            $('#src_rep').text('No special rep (there might be pending reports against this user)');
+			$('#src_rep').text('No special rep (there might be pending reports against this user)');
 			break;
     }
 }
 
-function handleRep(reputation) {
+function handleRep(reputation, sid64) {
     if (reputation == '') {
         tagUser('', reputation);
+		findPendingReports(sid64);
     }
     else if (reputation.search(/(banned|scammer)/i) > -1) {
         tagUser('scammer', reputation);
@@ -128,12 +130,38 @@ function querySteamRep(sid64) {
             srResponse = jqxhr.responseJSON;
 
             $('#src_rep').attr('title', srResponse.steamrep.reputation);
-            handleRep(srResponse.steamrep.reputation);
+            handleRep(srResponse.steamrep.reputation, sid64);
 
         })
         .fail(function (e) {
             $('#src_rep').text('Error communicating with SteamRep.com. Click here to visit the website.');
         });
+}
+
+function findPendingReports(sid64) {
+	console.log('findPendingReports ' + sid64);
+	
+    var sr_api_url = 'http://forums.steamrep.com/search/search/.json?keywords=' + sid64 + '&o=date';
+
+    $.ajax({
+        url: sr_api_url,
+        dataType: 'json'
+    })
+        .done(function (xml, textStatus, jqxhr) {
+			
+			srResponse = jqxhr.responseJSON;
+			
+			if (typeof(srResponse.status) !== 'undefined'){
+				if((srResponse.status == 'ok') && (srResponse.message == 'No results found.'))
+				{
+					$('#src_rep').attr('title', "No special rep (0 pending reports)");
+					$('#src_rep').text('No special rep (0 pending reports)');
+				} 
+			} else {			
+				$('#src_rep').attr('title', "There might be pending reports against this user");
+				$('#src_rep').text('No special rep (there might be pending reports against this user)');
+			}
+        })
 }
 
 function getReputation() {
@@ -171,10 +199,11 @@ function getReputation() {
 
             $('#steamrep_checker').append('<p><img class="src_icon" alt="logo" width="16" height="16" src="'+ tf2bp +'" /><a href="http://backpack.tf/profiles/' + sid64 + '">bp.tf</a> | '
                                               + '<img class="src_icon" alt="logo" width="16" height="16" src="'+ dota2bp +'" /><a href="http://dota2.backpack.tf/profiles/' + sid64 + '">dota2.bp.tf</a> | '
-                                              + '<img class="src_icon" alt="logo" width="16" height="16" src="'+ dota2bp +'" /> <a href="http://www.csgovalue.com/?id=' + sid64 + '">CSGOValue.com</a> | '
+                                              + '<img class="src_icon" alt="logo" width="16" height="16" src="'+ csgovalue +'" /> <a href="http://www.csgovalue.com/?id=' + sid64 + '">CSGOValue.com</a> | '
                                               + '<img class="src_icon" alt="logo" width="16" height="16" src="'+ st +'" /><a href="http://www.steamtrades.com/user/id/' + sid64 + '">SteamTrades.com</a></p>');
 
-            querySteamRep(sid64);
+            
+			querySteamRep(sid64);
         })
         .fail(function (e) {
             $('#src_rep').text('Error getting the SteamID64');
