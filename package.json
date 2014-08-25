@@ -12,5 +12,5 @@
         "cross-domain-content": ["http://steamcommunity.com/", "https://steamcommunity.com/", "https://steamrep.com/","http://forums.steamrep.com/"],
         "private-browsing": true
     },
-    "version": "0.4"
+    "version": "0.5"
 }
