@@ -1,7 +1,7 @@
 /**
  * Object that holds the current addon preferences
  *
- * @type {{prefBackpack: (*|.contentScriptOptions.prefBackpack), prefDotaBP: (*|.contentScriptOptions.prefDotaBP), prefSteamgifts: (*|.contentScriptOptions.prefSteamgifts), prefCSGOValue: (.contentScriptOptions.prefCSGOvalue|*), prefGoogle: (*|.contentScriptOptions.prefGoogle)}}
+ * @type {{prefBackpack: boolean, prefDotaBP: boolean, prefSteamgifts: boolean, prefCSGOValue: boolean, prefGoogle: boolean, prefCsgoLounge: boolean, prefDota2Lounge: boolean, prefTf2Outpost: boolean, prefTf2TradingPost: boolean}}
  */
 var Settings = {
     prefBackpack: true,
@@ -59,7 +59,7 @@ var SteamRepInfo = {
  * Shield Icons by paomedia (https://github.com/paomedia/small-n-flat)
  * licensed under CC0 which is available here: https://github.com/paomedia/small-n-flat/blob/master/LICENSE
  *
- * @type {{Loading: string, ShieldGreen: string, ShieldYellow: string, ShieldRed: string, ShieldRedBig: string, faviconTF2Bp: string, faviconDota2bp: string, faviconSteamgifts: string, faviconCsgoValue: string, faviconGoogle: string, faviconSteamrep: string}}
+ * @type {{Loading: string, ShieldGreen: string, ShieldYellow: string, ShieldRed: string, ShieldRedBig: string, faviconTF2Bp: string, faviconDota2bp: string, faviconSteamgifts: string, faviconCsgoValue: string, faviconGoogle: string, faviconBazaar: string, faviconCsgoLounge: string, faviconDota2Lounge: string, faviconTf2Outpost: string, faviconTf2TradingPost: string, faviconSteamrep: string}}
  */
 var Icons = {
     Loading: '<image alt="loading" height="16" width="16" class="loading" src="' + self.options.LoadingIcon + '" />',
@@ -92,7 +92,7 @@ function createScammerWarningDialog() {
     var dialog =
         '<div id="openModal" class="modalDialog">'
         + '<div>'
-        + '     <a href="javascript:" onclick="document.getElementById(\'openModal\').style.opacity=0;" title="Close" class="close">X</a>'
+        + '     <a href="javascript:" onclick="document.getElementById(\'openModal\').style.opacity=0;document.getElementById(\'openModal\').style.pointerEvents=\'none\';" title="Close" class="close">X</a>'
         + '     <h2>WARNING: SCAMMER</h2>'
         + '     <p>' + Icons.ShieldRedBig + ' This user has been marked as a scammer on SteamRep.com. </p>'
         + '     <p>To protect yourself and prevent thieves from profiting, <b style="text-decoration: underline;">do not trade with this person</b>.'
