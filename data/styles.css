@@ -51,3 +51,20 @@
     border: 0;
     margin-right: 3px;
 }
+
+#ext_links {
+    list-style: none;
+    padding:0;
+}
+#ext_links li{
+    display: inline-block;
+    margin: 5px;
+}
+
+#ext_links li:after{
+    content: " | ";
+}
+
+#ext_links :last-child:after {
+    content: "";
+}

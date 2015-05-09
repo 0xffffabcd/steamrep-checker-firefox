@@ -17,7 +17,7 @@
     ],
     "private-browsing": true
   },
-  "version": "0.6",
+  "version": "0.6.5",
   "preferences": [
     {
       "type": "bool",
@@ -47,6 +47,36 @@
       "type": "bool",
       "name": "prefGoogle",
       "title": "Google.com",
+      "value": true
+    },
+    {
+      "type": "bool",
+      "name": "prefBazaar",
+      "title": "Bazaar.tf",
+      "value": true
+    },
+    {
+      "type": "bool",
+      "name": "prefCsgoLounge",
+      "title": "csgolounge.com",
+      "value": true
+    },
+    {
+      "type": "bool",
+      "name": "prefDota2Lounge",
+      "title": "Dota2lounge.com",
+      "value": true
+    },
+    {
+      "type": "bool",
+      "name": "prefTf2Outpost",
+      "title": "TF2Outpost.com",
+      "value": true
+    },
+    {
+      "type": "bool",
+      "name": "prefTf2TradingPost",
+      "title": "tf2tp.com",
       "value": true
     }
   ]

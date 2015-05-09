@@ -4,29 +4,31 @@
  * @type {{prefBackpack: (*|.contentScriptOptions.prefBackpack), prefDotaBP: (*|.contentScriptOptions.prefDotaBP), prefSteamgifts: (*|.contentScriptOptions.prefSteamgifts), prefCSGOValue: (.contentScriptOptions.prefCSGOvalue|*), prefGoogle: (*|.contentScriptOptions.prefGoogle)}}
  */
 var Settings = {
-    prefBackpack: self.options.prefBackpack,
-    prefDotaBP: self.options.prefDotaBP,
-    prefSteamgifts: self.options.prefSteamgifts,
-    prefCSGOValue: self.options.prefCSGOvalue,
-    prefGoogle: self.options.prefGoogle
+    prefBackpack: true,
+    prefDotaBP: true,
+    prefSteamgifts: true,
+    prefCSGOValue: true,
+    prefGoogle: true,
+    prefCsgoLounge: true,
+    prefDota2Lounge: true,
+    prefTf2Outpost: true,
+    prefTf2TradingPost: true
 };
 
 // Update values to reflect preferences changes while the addon is attached to a page
-self.port.on("prefBackpack", function (newValue) {
-    Settings.prefBackpack = newValue;
+self.port.on("settings", function (newValue) {
+    Settings.prefBackpack = newValue.prefBackpack;
+    Settings.prefDotaBP = newValue.prefDotaBP;
+    Settings.prefSteamgifts = newValue.prefSteamgifts;
+    Settings.prefCSGOvalue = newValue.prefCSGOvalue;
+    Settings.prefGoogle = newValue.prefGoogle;
+    Settings.prefBazaar = newValue.prefBazaar;
+    Settings.prefCsgoLounge = newValue.prefCsgoLounge;
+    Settings.prefDota2Lounge = newValue.prefDota2Lounge;
+    Settings.prefTf2Outpost = newValue.prefTf2Outpost;
+    Settings.prefTf2TradingPost = newValue.prefTf2TradingPost;
 });
-self.port.on("prefDotaBP", function (newValue) {
-    Settings.prefDotaBP = newValue;
-});
-self.port.on("prefSteamgifts", function (newValue) {
-    Settings.prefSteamgifts = newValue;
-});
-self.port.on("prefCSGOvalue", function (newValue) {
-    Settings.prefCSGOValue = newValue;
-});
-self.port.on("prefGoogle", function (newValue) {
-    Settings.prefGoogle = newValue;
-});
+
 
 /**
  * Steam user object
@@ -67,13 +69,19 @@ var Icons = {
     ShieldRed: '<image alt="scammer" height="24" width="24" src="' + self.options.ShieldRedIcon + '" />',
     ShieldRedBig: '<image alt="scammer" height="128" width="128" src="' + self.options.ShieldRedIconBig + '" style="float:left;" />',
 
-    faviconTF2Bp: '<image alt="Backpack.tf" height="16" width="16" src="' + self.options.faviconTF2Bp + '" />',
-    faviconDota2bp: '<image alt="D2.backpack.tf" height="16" width="16" src="' + self.options.faviconDota2bp + '" />',
-    faviconSteamgifts: '<image alt="Steamgifts.com" height="16" width="16" src="' + self.options.faviconSteamgifts + '" />',
-    faviconCsgoValue: '<image alt="CsgoValue" height="16" width="16" src="' + self.options.faviconCsgoValue + '" />',
-    faviconGoogle: '<image alt="Google" height="16" width="16" src="' + self.options.faviconGoogle + '" />',
+    faviconTF2Bp: '<image class="src_icon" alt="Backpack.tf" height="16" width="16" src="' + self.options.faviconTF2Bp + '" />',
+    faviconDota2bp: '<image class="src_icon" alt="D2.backpack.tf" height="16" width="16" src="' + self.options.faviconDota2bp + '" />',
+    faviconSteamgifts: '<image class="src_icon" alt="Steamgifts.com" height="16" width="16" src="' + self.options.faviconSteamgifts + '" />',
+    faviconCsgoValue: '<image class="src_icon" alt="CsgoValue" height="16" width="16" src="' + self.options.faviconCsgoValue + '" />',
+    faviconGoogle: '<image class="src_icon" alt="Google" height="16" width="16" src="' + self.options.faviconGoogle + '" />',
 
-    faviconSteamrep: '<image alt="Steamrep" height="16" width="16" src="' + self.options.faviconSteamRep + '" class="src_icon" />'
+    faviconBazaar: '<image class="src_icon" alt="Bazaar.tf" height="16" width="16" src="' + self.options.faviconBazaar + '" />',
+    faviconCsgoLounge: '<image class="src_icon" alt="CSGO Lounge" height="16" width="16" src="' + self.options.faviconCsgoLounge + '" />',
+    faviconDota2Lounge: '<image class="src_icon" alt="Dota 2 Lounge" height="16" width="16" src="' + self.options.faviconDota2Lounge + '" />',
+    faviconTf2Outpost: '<image class="src_icon" alt="Outpost" height="16" width="16" src="' + self.options.faviconTf2Outpost + '" />',
+    faviconTf2TradingPost: '<image class="src_icon" alt="Tf2 Trading Post" height="16" width="16" src="' + self.options.faviconTf2TradingPost + '" />',
+
+    faviconSteamrep: '<image class="src_icon" alt="Steamrep" height="16" width="16" src="' + self.options.faviconSteamRep + '" />'
 };
 
 
@@ -251,19 +259,28 @@ function displaySteamInfo() {
 
 
     // External websites
-    $('#steamrep_checker').append('<p>');
+    $('#steamrep_checker').append('<ul id="ext_links"></ul>');
     if (Settings.prefBackpack)
-        $('#steamrep_checker').append('<a href="http://backpack.tf/profiles/' + User.SteamID64 + '">' + Icons.faviconTF2Bp + ' backpack.tf</a> | ');
+        $('#ext_links').append('<li><a href="http://backpack.tf/profiles/' + User.SteamID64 + '">' + Icons.faviconTF2Bp + ' Backpack.tf</a></li>');
     if (Settings.prefDotaBP)
-        $('#steamrep_checker').append('<a href="http://dota2.backpack.tf/profiles/' + User.SteamID64 + '">' + Icons.faviconDota2bp + ' dota2.bp.tf</a> | ');
+        $('#ext_links').append('<li><a href="http://dota2.backpack.tf/profiles/' + User.SteamID64 + '">' + Icons.faviconDota2bp + ' Dota2.bp.tf</a></li>');
     if (Settings.prefCSGOValue)
-        $('#steamrep_checker').append('<a href="http://www.csgovalue.com/?steamID=' + User.SteamID64 + '">' + Icons.faviconCsgoValue + ' csgovalue.com</a> | ');
+        $('#ext_links').append('<li><a href="http://www.csgovalue.com/?steamID=' + User.SteamID64 + '">' + Icons.faviconCsgoValue + ' CSGOValue.com</a></li>');
     if (Settings.prefSteamgifts)
-        $('#steamrep_checker').append('<a href="http://www.steamgifts.com/go/user/' + User.SteamID64 + '">' + Icons.faviconSteamgifts + ' Steamgifts.com</a> | ');
+        $('#ext_links').append('<li><a href="http://www.steamgifts.com/go/user/' + User.SteamID64 + '">' + Icons.faviconSteamgifts + ' Steamgifts.com</a></li>');
     if (Settings.prefGoogle)
-        $('#steamrep_checker').append('<a href="https://www.google.com/search?q=' + User.SteamID64 + '">' + Icons.faviconGoogle + 'google.com</a></p>');
-    $('#steamrep_checker').append('</p>');
+        $('#ext_links').append('<li><a href="https://www.google.com/search?q=' + User.SteamID64 + '">' + Icons.faviconGoogle + 'Google.com</a></li>');
 
+    if (Settings.prefBazaar)
+        $('#ext_links').append('<li><a href="http://bazaar.tf/profiles/' + User.SteamID64 + '">' + Icons.faviconBazaar + 'Bazaar.tf</a></li>');
+    if (Settings.prefCsgoLounge)
+        $('#ext_links').append('<li><a href="http://csgolounge.com/profile?id=' + User.SteamID64 + '">' + Icons.faviconCsgoLounge + 'CSGOLounge.com</a></li>');
+    if (Settings.prefDota2Lounge)
+        $('#ext_links').append('<li><a href="http://dota2lounge.com/profile?id=' + User.SteamID64 + '">' + Icons.faviconDota2Lounge + 'Dota2Lounge.com</a></li>');
+    if (Settings.prefTf2Outpost)
+        $('#ext_links').append('<li><a href="http://www.tf2outpost.com/user/' + User.SteamID64 + '">' + Icons.faviconTf2Outpost + 'TF2Outpost.com</a></li>');
+    if (Settings.prefTf2TradingPost)
+        $('#ext_links').append('<li><a href="http://tf2tp.com/user/' + User.SteamID64 + '">' + Icons.faviconTf2TradingPost + 'TF2TP.com</a></li>');
 
 }
 
@@ -332,7 +349,7 @@ function createInfoBox(title) {
     }
 }
 
-var re = new RegExp("steamcommunity.com/(?:id|profiles)/[a-zA-Z0-9_-]+[/]+$");
+var re = new RegExp("steamcommunity.com/(?:id|profiles)/[a-zA-Z0-9_-]+[/]*$");
 
 
 if (re.exec(document.location.href)) {
