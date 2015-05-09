@@ -89,27 +89,17 @@ var Icons = {
  * Create a warning dialog in case the Steam user is a known scammer
  */
 function createScammerWarningDialog() {
-
     var dialog =
-        '<div id="dialog-message" title="WARNING: SCAMMER">'
-        + '<p>' + Icons.ShieldRedBig + ' This user has been marked as a scammer on SteamRep.com. </p>'
-        + '<p>To protect yourself and prevent thieves from profiting, <b style="color: red;">do not trade with this person</b>.'
-        + 'Players shouldn\'t be encouraged to steal. Supporting them can hurt your reputation.</p>'
+        '<div id="openModal" class="modalDialog">'
+        + '<div>'
+        + '     <a href="javascript:" onclick="document.getElementById(\'openModal\').style.opacity=0;" title="Close" class="close">X</a>'
+        + '     <h2>WARNING: SCAMMER</h2>'
+        + '     <p>' + Icons.ShieldRedBig + ' This user has been marked as a scammer on SteamRep.com. </p>'
+        + '     <p>To protect yourself and prevent thieves from profiting, <b style="text-decoration: underline;">do not trade with this person</b>.'
+        + '     Players shouldn\'t be encouraged to steal. Supporting them can hurt your reputation.</p>'
+        + ' </div>'
         + '</div>';
-
     $('body').prepend(dialog);
-
-    $("#dialog-message").dialog({
-        modal: true,
-        draggable: false,
-        height: 285,
-        width: 560,
-        buttons: {
-            Ok: function () {
-                $(this).dialog("close");
-            }
-        }
-    });
 }
 
 /**
