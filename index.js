@@ -9,7 +9,7 @@ var sp = require('sdk/simple-prefs');
 
 
 pageMod.PageMod({
-    include: "*.steamcommunity.com",
+    include: /.*steamcommunity\.com\/(id|profiles)\/[\w-]+[\/]*$/,
     contentScriptFile: [
         self.url("jquery/jquery.min.js"),
         self.url("checker.js")
@@ -39,7 +39,7 @@ pageMod.PageMod({
         faviconCsgoLounge: self.url("icons/websites/csgo_lounge.png"),
         faviconDota2Lounge: self.url("icons/websites/dota2_lounge.png"),
         faviconTf2Outpost: self.url("icons/websites/tf2outpost.png"),
-        faviconTf2TradingPost: self.url("icons/websites/tf2tp.png"),
+        faviconTradingPost: self.url("icons/websites/tf2tp.png")
     },
     onAttach: function (worker) {
         worker.port.emit('settings', sp.prefs);

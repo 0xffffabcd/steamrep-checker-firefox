@@ -1,12 +1,15 @@
 {
+  "id": "jid1-9QxvV0gtqiySgg@jetpack",
   "name": "steamrep-checker",
   "title": "SteamRep Checker",
   "icon": "icons/icon.png",
   "icon64": "icons/icon64.png",
-  "fullName": "SteamRep Checker",
-  "id": "jid1-9QxvV0gtqiySgg",
   "description": "This extension checks the reputation of a Steam user on SteamRep.",
-  "author": "Po1nter (http://steamcommunity.com/profiles/76561198025281321)",
+  "homepage":"https://github.com/0xffffabcd/steamrep-checker",
+  "author": "Nasreddine HOURIA <nasreddine.houria@gmail.com>",
+  "engines": {
+    "firefox": ">=38.0a1",
+  },
   "license": "MIT",
   "permissions": {
     "cross-domain-content": [
@@ -17,7 +20,7 @@
     ],
     "private-browsing": true
   },
-  "version": "0.6.5",
+  "version": "0.7.0",
   "preferences": [
     {
       "type": "bool",
