@@ -31,10 +31,9 @@ pageMod.PageMod({
         faviconTF2Bp: self.url("icons/websites/bp.tf.png"),
         faviconDota2bp: self.url("icons/websites/d2.bp.tf.png"),
         faviconSteamgifts: self.url("icons/websites/st.png"),
-        faviconCsgoValue: self.url("icons/websites/csgovalue.png"),
+        faviconCSGOValue: self.url("icons/websites/CSGOValue.png"),
         faviconGoogle: self.url("icons/websites/google.png"),
         faviconSteamRep: self.url("icons/websites/sr.png"),
-
         faviconBazaar: self.url("icons/websites/bazaar.png"),
         faviconCsgoLounge: self.url("icons/websites/csgo_lounge.png"),
         faviconDota2Lounge: self.url("icons/websites/dota2_lounge.png"),

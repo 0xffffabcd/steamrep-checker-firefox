@@ -8,7 +8,7 @@
   "homepage":"https://github.com/0xffffabcd/steamrep-checker",
   "author": "Nasreddine HOURIA <nasreddine.houria@gmail.com>",
   "engines": {
-    "firefox": ">=38.0a1",
+    "firefox": ">=38.0a1"
   },
   "license": "MIT",
   "permissions": {
@@ -42,7 +42,7 @@
     },
     {
       "type": "bool",
-      "name": "prefCSGOvalue",
+      "name": "prefCSGOValue",
       "title": "CSGOValue.com",
       "value": true
     },

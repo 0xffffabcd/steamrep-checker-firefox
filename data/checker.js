@@ -7,7 +7,7 @@ var Settings = {
     prefBackpack: true,
     prefDotaBP: true,
     prefSteamgifts: true,
-    prefCSGOvalue: true,
+    prefCSGOValue: true,
     prefGoogle: true,
     prefBazaar: true,
     prefCsgoLounge: true,
@@ -24,7 +24,7 @@ self.port.on("settings", function (newValue) {
     Settings.prefBackpack = newValue.prefBackpack;
     Settings.prefDotaBP = newValue.prefDotaBP;
     Settings.prefSteamgifts = newValue.prefSteamgifts;
-    Settings.prefCSGOvalue = newValue.prefCSGOvalue;
+    Settings.prefCSGOValue = newValue.prefCSGOValue;
     Settings.prefGoogle = newValue.prefGoogle;
     Settings.prefBazaar = newValue.prefBazaar;
     Settings.prefCsgoLounge = newValue.prefCsgoLounge;
@@ -63,7 +63,7 @@ var SteamRepInfo = {
  * Shield Icons by paomedia (https://github.com/paomedia/small-n-flat)
  * licensed under CC0 which is available here: https://github.com/paomedia/small-n-flat/blob/master/LICENSE
  *
- * @type {{ShieldGreen: {height: number, width: number, src: *, alt: string}, ShieldYellow: {height: number, width: number, src: *, alt: string}, ShieldRed: {height: number, width: number, src: *, alt: string}, Loading: {height: number, width: number, src: *, alt: string, class: string}, fiTF2Bp: {height: number, width: number, src: *, alt: string, class: string}, fiDota2bp: {height: number, width: number, src: *, alt: string, class: string}, fiSteamgifts: {height: number, width: number, src: *, alt: string, class: string}, fiCsgoValue: {height: number, width: number, src: *, alt: string, class: string}, fiGoogle: {height: number, width: number, src: *, alt: string, class: string}, fiBazaar: {height: number, width: number, src: *, alt: string, class: string}, fiCsgoLounge: {height: number, width: number, src: *, alt: string, class: string}, fiDota2Lounge: {height: number, width: number, src: *, alt: string, class: string}, fiTf2Outpost: {height: number, width: number, src: *, alt: string, class: string}, fiTradingPost: {height: number, width: number, src: *, alt: string, class: string}, fiSteamrep: {height: number, width: number, src: *, alt: string, class: string}, ShieldRedBig: {height: number, width: number, src: *, alt: string, style: string}}}
+ * @type {{ShieldGreen: {height: number, width: number, src: *, alt: string}, ShieldYellow: {height: number, width: number, src: *, alt: string}, ShieldRed: {height: number, width: number, src: *, alt: string}, Loading: {height: number, width: number, src: *, alt: string, class: string}, fiTF2Bp: {height: number, width: number, src: *, alt: string, class: string}, fiDota2bp: {height: number, width: number, src: *, alt: string, class: string}, fiSteamgifts: {height: number, width: number, src: *, alt: string, class: string}, fiCSGOValue: {height: number, width: number, src: *, alt: string, class: string}, fiGoogle: {height: number, width: number, src: *, alt: string, class: string}, fiBazaar: {height: number, width: number, src: *, alt: string, class: string}, fiCsgoLounge: {height: number, width: number, src: *, alt: string, class: string}, fiDota2Lounge: {height: number, width: number, src: *, alt: string, class: string}, fiTf2Outpost: {height: number, width: number, src: *, alt: string, class: string}, fiTradingPost: {height: number, width: number, src: *, alt: string, class: string}, fiSteamrep: {height: number, width: number, src: *, alt: string, class: string}, ShieldRedBig: {height: number, width: number, src: *, alt: string, style: string}}}
  */
 var Icons = {
     ShieldGreen:   { height: 24,  width: 24,  src: self.options.ShieldGreenIcon, alt: "trusted"},
@@ -73,7 +73,7 @@ var Icons = {
     fiTF2Bp:       { height: 16,  width: 16,  src: self.options.faviconTF2Bp, alt: "Backpack.tf", className: "src_icon"},
     fiDota2bp:     { height: 16,  width: 16,  src: self.options.faviconDota2bp, alt: "D2.backpack.tf", className: "src_icon"},
     fiSteamgifts:  { height: 16,  width: 16,  src: self.options.faviconSteamgifts, alt: "Steamgifts", className: "src_icon"},
-    fiCsgoValue:   { height: 16,  width: 16,  src: self.options.faviconCsgoValue, alt: "CsgoValue", className: "src_icon"},
+    fiCSGOValue:   { height: 16,  width: 16,  src: self.options.faviconCSGOValue, alt: "CSGOValue", className: "src_icon"},
     fiGoogle:      { height: 16,  width: 16,  src: self.options.faviconGoogle, alt: "Google", className: "src_icon"},
     fiBazaar:      { height: 16,  width: 16,  src: self.options.faviconBazaar, alt: "Bazaar.tf", className: "src_icon"},
     fiCsgoLounge:  { height: 16,  width: 16,  src: self.options.faviconCsgoLounge, alt: "CSGO Lounge", className: "src_icon" },
@@ -338,7 +338,7 @@ function displaySteamInfo() {
     if (Settings.prefDotaBP)
         extLinks.appendChild(addExtLink('http://dota2.backpack.tf/profiles/', createImageElement(Icons.fiDota2bp), 'Dota2.BP.TF'));
     if (Settings.prefCSGOValue)
-        extLinks.appendChild(addExtLink('http://www.csgovalue.com/?steamID=', createImageElement(Icons.fiCsgoValue), 'CSGOValue.com'));
+        extLinks.appendChild(addExtLink('http://www.CSGOValue.com/?steamID=', createImageElement(Icons.fiCSGOValue), 'CSGOValue.com'));
     if (Settings.prefSteamgifts)
         extLinks.appendChild(addExtLink('http://www.steamgifts.com/go/user/', createImageElement(Icons.fiSteamgifts), 'SteamGifts.com'));
     if (Settings.prefGoogle)
