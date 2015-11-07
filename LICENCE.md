@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright (c) 2014 Po1nter ( http://steamcommunity.com/profiles/76561198025281321 )
+Copyright (c) 2014 Nasreddine HOURIA
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
