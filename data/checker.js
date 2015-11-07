@@ -270,7 +270,7 @@ function displaySteamInfo() {
     $("#src_rep").attr("href", "http://steamrep.com/profiles/" + User.SteamID64);
 
     var privacy = "";
-    switch (privacy) {
+    switch (User.Privacy) {
         case "public":
             privacy = "Public";
             break;
