@@ -66,22 +66,99 @@ var SteamRepInfo = {
  * @type {{ShieldGreen: {height: number, width: number, src: *, alt: string}, ShieldYellow: {height: number, width: number, src: *, alt: string}, ShieldRed: {height: number, width: number, src: *, alt: string}, Loading: {height: number, width: number, src: *, alt: string, class: string}, fiTF2Bp: {height: number, width: number, src: *, alt: string, class: string}, fiDota2bp: {height: number, width: number, src: *, alt: string, class: string}, fiSteamgifts: {height: number, width: number, src: *, alt: string, class: string}, fiCSGOValue: {height: number, width: number, src: *, alt: string, class: string}, fiGoogle: {height: number, width: number, src: *, alt: string, class: string}, fiBazaar: {height: number, width: number, src: *, alt: string, class: string}, fiCsgoLounge: {height: number, width: number, src: *, alt: string, class: string}, fiDota2Lounge: {height: number, width: number, src: *, alt: string, class: string}, fiTf2Outpost: {height: number, width: number, src: *, alt: string, class: string}, fiTradingPost: {height: number, width: number, src: *, alt: string, class: string}, fiSteamrep: {height: number, width: number, src: *, alt: string, class: string}, ShieldRedBig: {height: number, width: number, src: *, alt: string, style: string}}}
  */
 var Icons = {
-    ShieldGreen:   { height: 24,  width: 24,  src: self.options.ShieldGreenIcon, alt: "trusted"},
-    ShieldYellow:  { height: 24,  width: 24,  src: self.options.ShieldYellowSmall, alt: "caution"},
-    ShieldRed:     { height: 24,  width: 24,  src: self.options.ShieldRedIcon, alt: "scammer"},
-    Loading:       { height: 16,  width: 16,  src: self.options.LoadingIcon, alt: "loading", className: "loading"},
-    fiTF2Bp:       { height: 16,  width: 16,  src: self.options.faviconTF2Bp, alt: "Backpack.tf", className: "src_icon"},
-    fiDota2bp:     { height: 16,  width: 16,  src: self.options.faviconDota2bp, alt: "D2.backpack.tf", className: "src_icon"},
-    fiSteamgifts:  { height: 16,  width: 16,  src: self.options.faviconSteamgifts, alt: "Steamgifts", className: "src_icon"},
-    fiCSGOValue:   { height: 16,  width: 16,  src: self.options.faviconCSGOValue, alt: "CSGOValue", className: "src_icon"},
-    fiGoogle:      { height: 16,  width: 16,  src: self.options.faviconGoogle, alt: "Google", className: "src_icon"},
-    fiBazaar:      { height: 16,  width: 16,  src: self.options.faviconBazaar, alt: "Bazaar.tf", className: "src_icon"},
-    fiCsgoLounge:  { height: 16,  width: 16,  src: self.options.faviconCsgoLounge, alt: "CSGO Lounge", className: "src_icon" },
-    fiDota2Lounge: { height: 16,  width: 16,  src: self.options.faviconDota2Lounge, alt: "Dota 2 Lounge", class: "src_icon" },
-    fiTf2Outpost:  { height: 16,  width: 16,  src: self.options.faviconTf2Outpost, alt: "Outpost", class: "src_icon"},
-    fiTradingPost: { height: 16,  width: 16,  src: self.options.faviconTradingPost, alt: "Tf2 Trading Post", class: "src_icon" },
-    fiSteamrep:    { height: 16,  width: 16,  src: self.options.faviconSteamRep, alt: "Steamrep", class: "src_icon"},
-    ShieldRedBig:  { height: 128, width: 128, src: self.options.ShieldRedIconBig, alt: "scammer", style: "float:left;"}
+    ShieldGreen: {
+        height: 24, width: 24,
+        src: self.options.ShieldGreenIcon,
+        alt: "trusted"
+    },
+    ShieldYellow: {
+        height: 24, width: 24,
+        src: self.options.ShieldYellowSmall,
+        alt: "caution"
+    },
+    ShieldRed: {
+        height: 24, width: 24,
+        src: self.options.ShieldRedIcon,
+        alt: "scammer"
+    },
+    Loading: {
+        height: 16, width: 16,
+        src: self.options.LoadingIcon,
+        alt: "loading",
+        className: "loading"
+    },
+    fiTF2Bp: {
+        height: 16, width: 16,
+        src: self.options.faviconTF2Bp,
+        alt: "Backpack.tf",
+        className: "src_icon"
+    },
+    fiDota2bp: {
+        height: 16, width: 16,
+        src: self.options.faviconDota2bp,
+        alt: "D2.backpack.tf",
+        className: "src_icon"
+    },
+    fiSteamgifts: {
+        height: 16, width: 16,
+        src: self.options.faviconSteamgifts,
+        alt: "Steamgifts",
+        className: "src_icon"
+    },
+    fiCSGOValue: {
+        height: 16, width: 16,
+        src: self.options.faviconCSGOValue,
+        alt: "CSGOValue",
+        className: "src_icon"
+    },
+    fiGoogle: {
+        height: 16, width: 16,
+        src: self.options.faviconGoogle,
+        alt: "Google",
+        className: "src_icon"
+    },
+    fiBazaar: {
+        height: 16, width: 16,
+        src: self.options.faviconBazaar,
+        alt: "Bazaar.tf",
+        className: "src_icon"
+    },
+    fiCsgoLounge: {
+        height: 16, width: 16,
+        src: self.options.faviconCsgoLounge,
+        alt: "CSGO Lounge",
+        className: "src_icon"
+    },
+    fiDota2Lounge: {
+        height: 16, width: 16,
+        src: self.options.faviconDota2Lounge,
+        alt: "Dota 2 Lounge",
+        class: "src_icon"
+    },
+    fiTf2Outpost: {
+        height: 16, width: 16,
+        src: self.options.faviconTf2Outpost,
+        alt: "Outpost",
+        class: "src_icon"
+    },
+    fiTradingPost: {
+        height: 16, width: 16,
+        src: self.options.faviconTradingPost,
+        alt: "Tf2 Trading Post",
+        class: "src_icon"
+    },
+    fiSteamrep: {
+        height: 16, width: 16,
+        src: self.options.faviconSteamRep,
+        alt: "Steamrep",
+        class: "src_icon"
+    },
+    ShieldRedBig: {
+        height: 128, width: 128,
+        src: self.options.ShieldRedIconBig,
+        alt: "scammer",
+        style: "left"
+    }
 };
 
 /**
@@ -95,8 +172,8 @@ function createImageElement(image) {
     imageElement.width = image.width;
     imageElement.src = image.src;
     imageElement.alt = image.alt;
-    imageElement.setAttribute("class", image.className || "");
-    imageElement.style = image.style || "";
+    imageElement.className = image.className || "";
+    imageElement.style.float = image.style || "";
     return imageElement;
 }
 
@@ -158,7 +235,7 @@ function tagUser(tagType, reputation) {
     var personaName = document.querySelector('.actual_persona_name');
     switch (tagType) {
         case "scammer":
-            srcRepElement.textContent = reputation;
+            srcRepElement.textContent = " " + reputation;
             srcRepElement.className = "scammer";
 
             document.querySelector('.playerAvatar.profile_header_size').style.border = "2px solid #F00";
@@ -166,7 +243,7 @@ function tagUser(tagType, reputation) {
             personaName.insertBefore(createImageElement(Icons.ShieldRed), personaName.firstElementChild);
             break;
         case "caution":
-            srcRepElement.textContent = reputation;
+            srcRepElement.textContent = " " +reputation;
             srcRepElement.className = "caution";
 
             document.querySelector('.playerAvatar.profile_header_size').style.border = "2px solid orange";
@@ -174,7 +251,7 @@ function tagUser(tagType, reputation) {
             personaName.insertBefore(createImageElement(Icons.ShieldYellow), personaName.firstElementChild);
             break;
         case "trusted":
-            srcRepElement.textContent = reputation;
+            srcRepElement.textContent = " " +reputation;
             srcRepElement.className = "trusted";
 
             document.querySelector('.playerAvatar.profile_header_size').style.border = "2px solid lime";
@@ -214,22 +291,20 @@ function handleRep() {
  */
 function querySteamRep() {
     var sr_api_url = "https://steamrep.com/api/beta/reputation/" + User.SteamID64 + "?json=1&source=sr-check";
+    var src_rep = document.getElementById('src_rep');
 
     $.ajax({
         url: sr_api_url,
         dataType: "json"
     }).done(function (xml, textStatus, jqxhr) {
         var srResponse = jqxhr.responseJSON;
-
         SteamRepInfo.Reputation = srResponse.steamrep.reputation;
         SteamRepInfo.SteamID64 = User.SteamID64;
-
-        $("#src_rep").attr("title", SteamRepInfo.Reputation);
+        src_rep.title = SteamRepInfo.Reputation;
 
         handleRep(SteamRepInfo.Reputation, User.SteamID64);
-
     }).fail(function () {
-        $("#src_rep").text("Error communicating with SteamRep.com. Click here to visit the website.");
+        src_rep.textContent = "Error communicating with SteamRep.com. Click here to visit the website.";
     });
 }
 
@@ -239,13 +314,13 @@ function querySteamRep() {
  * @param steamID64 SteamID64 of the user
  */
 function findPendingReports(steamID64) {
-    var sr_api_url = "http://forums.steamrep.com/search/search/.json?keywords=" + steamID64 + "&o=date";
+    var sr_reports_url = "http://forums.steamrep.com/search/search/.json?keywords=" + steamID64 + "&o=date";
+    var src_rep = document.getElementById('src_rep');
 
     $.ajax({
-            url: sr_api_url,
+            url: sr_reports_url,
             dataType: "json"
-        })
-        .done(function (xml, textStatus, jqxhr) {
+        }).done(function (xml, textStatus, jqxhr) {
 
             var srResponse = jqxhr.responseJSON;
             var srcRepElement = document.getElementById('src_rep');
@@ -258,7 +333,9 @@ function findPendingReports(steamID64) {
                 srcRepElement.title = "There might be pending reports against this user";
                 srcRepElement.textContent = "No special rep (there might be pending reports against this user)";
             }
-        })
+        }).fail(function(){
+            src_rep.textContent = "Error communicating with SteamRep.com. Click here to visit the website.";
+        });
 }
 
 
@@ -267,7 +344,8 @@ function findPendingReports(steamID64) {
  * to ease the background check
  */
 function displaySteamInfo() {
-    $("#src_rep").attr("href", "http://steamrep.com/profiles/" + User.SteamID64);
+    var src_rep = document.getElementById('src_rep');
+    src_rep.href = "http://steamrep.com/profiles/" + User.SteamID64;
 
     var privacy = "";
     switch (User.Privacy) {
@@ -294,8 +372,8 @@ function displaySteamInfo() {
     var permalinkParag = document.createElement('p');
     permalinkParag.appendChild(createElementWithText('b', 'Permalink : '));
 
-    var permalink = createElementWithText('a', 'http://steamcommunity.com/profiles/' + User.SteamID64);
-    permalink.href = 'http://steamcommunity.com/profiles/' + User.SteamID64;
+    var permalink = createElementWithText('a', 'https://steamcommunity.com/profiles/' + User.SteamID64);
+    permalink.href = 'https://steamcommunity.com/profiles/' + User.SteamID64;
     permalink.id = 'src_profile_permalink';
     permalinkParag.appendChild(permalink);
 
@@ -391,12 +469,11 @@ function getSteamInfo() {
             User.TradeBanState = jqXml.find("tradeBanState").text();
             User.VacBanned = jqXml.find("vacBanned").text();
             User.Privacy = jqXml.find("privacyState").text();
-
             displaySteamInfo();
             querySteamRep(User.SteamID64);
         })
         .fail(function () {
-            $('#src_rep').text('Error getting the SteamID64');
+            document.getElementById('src_rep').textContent = 'Error getting the SteamID64';
         });
 }
 

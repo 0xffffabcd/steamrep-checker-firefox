@@ -101,6 +101,8 @@
     border-radius: 10px;
     background: #fff;
     background: -moz-linear-gradient(red, orangered);
+    background: -webkit-linear-gradient(red, orangered);
+    background: linear-gradient(red, orangered);
 }
 
 .close {
