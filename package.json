@@ -2,7 +2,7 @@
   "id": "jid1-9QxvV0gtqiySgg@jetpack",
   "name": "steamrep-checker",
   "title": "SteamRep Checker",
-  "icon": "icons/icon.png",
+  "icon": "icons/icon48.png",
   "icon64": "icons/icon64.png",
   "description": "This extension checks the reputation of a Steam user on SteamRep.",
   "homepage":"https://github.com/0xffffabcd/steamrep-checker",
