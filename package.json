@@ -5,7 +5,7 @@
   "icon": "icons/icon48.png",
   "icon64": "icons/icon64.png",
   "description": "This extension checks the reputation of a Steam user on SteamRep.",
-  "homepage":"https://github.com/0xffffabcd/steamrep-checker",
+  "homepage":"https://github.com/0xffffabcd/steamrep-checker-firefox",
   "author": "Nasreddine HOURIA <nasreddine.houria@gmail.com>",
   "engines": {
     "firefox": ">=38.0a1"
