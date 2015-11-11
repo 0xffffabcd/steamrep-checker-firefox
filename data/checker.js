@@ -1,4 +1,28 @@
 /**
+ * # The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Nasreddine HOURIA
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
  * Object that holds the current addon preferences
  *
  * @type {{prefBackpack: boolean, prefDotaBP: boolean, prefSteamgifts: boolean, prefCSGOValue: boolean, prefGoogle: boolean, prefCsgoLounge: boolean, prefDota2Lounge: boolean, prefTf2Outpost: boolean, prefTf2TradingPost: boolean}}
@@ -178,51 +202,44 @@ function createImageElement(image) {
 }
 
 /**
- * create an element and initialize its text content
- * @param tagName tag name
- * @param textContent text content
- * @returns {Element}
- */
-function createElementWithText(tagName, textContent) {
-    var element = document.createElement(tagName);
-    element.textContent = textContent;
-    return element;
-}
-
-/**
  * Create a warning dialog in case the Steam user is a known scammer
  */
 function createScammerWarningDialog() {
 
-    var dlg = document.createElement('div');
-    dlg.id = "openModal";
-    dlg.setAttribute("class", "modalDialog");
+    var scammerWarningDialog = document.createElement('div');
+    scammerWarningDialog.id = "openModal";
+    scammerWarningDialog.setAttribute("class", "modalDialog");
 
-    var innerDiv = document.createElement('div');
+    var warningDialogInnerDiv = document.createElement('div');
 
-    var closeModalLink = document.createElement('a');
-    closeModalLink.setAttribute("class", "close");
-    closeModalLink.href = "javascript:";
-    closeModalLink.title = "Close";
-    closeModalLink.textContent = "\u2716";
-    closeModalLink.addEventListener('click', function () {
+    var dialogCloseLink = document.createElement('a');
+    dialogCloseLink.setAttribute("class", "close");
+    dialogCloseLink.href = "javascript:";
+    dialogCloseLink.title = "Close";
+    dialogCloseLink.textContent = "\u2716";
+    dialogCloseLink.addEventListener('click', function () {
         document.getElementById("openModal").style.opacity = 0;
         document.getElementById("openModal").style.pointerEvents = "none";
     });
 
-    var dialogTitle = createElementWithText('h2', 'WARNING: SCAMMER');
-    var dlgParag = createElementWithText('p', ' This user has been marked as a scammer on SteamRep.com. ');
-    dlgParag.insertBefore(createImageElement(Icons.ShieldRedBig), dlgParag.firstChild);
+    var dialogTitle = document.createElement('h2');
+    dialogTitle.textContent = 'WARNING: SCAMMER';
 
-    innerDiv.appendChild(closeModalLink);
-    innerDiv.appendChild(dialogTitle);
-    innerDiv.appendChild(dlgParag);
-    innerDiv.appendChild(createElementWithText('p', "To protect yourself and prevent thieves from profiting, do not trade " +
-        "with this person. Players shouldn't be encouraged to steal. Supporting them can hurt your reputation"));
+    var dialogFirstParag = document.createElement('p');
+    dialogFirstParag.textContent = ' This user has been marked as a scammer on SteamRep.com. ';
+    dialogFirstParag.insertBefore(createImageElement(Icons.ShieldRedBig), dialogFirstParag.firstChild);
 
-    dlg.appendChild(innerDiv);
+    warningDialogInnerDiv.appendChild(dialogCloseLink);
+    warningDialogInnerDiv.appendChild(dialogTitle);
+    warningDialogInnerDiv.appendChild(dialogFirstParag);
+    var dialogSecondParag = document.createElement('p');
+    dialogSecondParag.textContent = "To protect yourself and prevent thieves from profiting, do not trade " +
+        "with this person. Players shouldn't be encouraged to steal. Supporting them can hurt your reputation";
+    warningDialogInnerDiv.appendChild(dialogSecondParag);
 
-    document.body.insertBefore(dlg, document.body.children[0]);
+    scammerWarningDialog.appendChild(warningDialogInnerDiv);
+
+    document.body.insertBefore(scammerWarningDialog, document.body.children[0]);
 }
 
 /**
@@ -243,7 +260,7 @@ function tagUser(tagType, reputation) {
             personaName.insertBefore(createImageElement(Icons.ShieldRed), personaName.firstElementChild);
             break;
         case "caution":
-            srcRepElement.textContent = " " +reputation;
+            srcRepElement.textContent = " " + reputation;
             srcRepElement.className = "caution";
 
             document.querySelector('.playerAvatar.profile_header_size').style.border = "2px solid orange";
@@ -251,7 +268,7 @@ function tagUser(tagType, reputation) {
             personaName.insertBefore(createImageElement(Icons.ShieldYellow), personaName.firstElementChild);
             break;
         case "trusted":
-            srcRepElement.textContent = " " +reputation;
+            srcRepElement.textContent = " " + reputation;
             srcRepElement.className = "trusted";
 
             document.querySelector('.playerAvatar.profile_header_size').style.border = "2px solid lime";
@@ -318,24 +335,24 @@ function findPendingReports(steamID64) {
     var src_rep = document.getElementById('src_rep');
 
     $.ajax({
-            url: sr_reports_url,
-            dataType: "json"
-        }).done(function (xml, textStatus, jqxhr) {
+        url: sr_reports_url,
+        dataType: "json"
+    }).done(function (xml, textStatus, jqxhr) {
 
-            var srResponse = jqxhr.responseJSON;
-            var srcRepElement = document.getElementById('src_rep');
-            if (typeof(srResponse.status) !== "undefined") {
-                if ((srResponse.status == "ok") && (srResponse.message == "No results found.")) {
-                    srcRepElement.title = "No special rep (0 pending reports)";
-                    srcRepElement.textContent = " No special rep (0 pending reports)";
-                }
-            } else {
-                srcRepElement.title = "There might be pending reports against this user";
-                srcRepElement.textContent = "No special rep (there might be pending reports against this user)";
+        var srResponse = jqxhr.responseJSON;
+        var srcRepElement = document.getElementById('src_rep');
+        if (typeof(srResponse.status) !== "undefined") {
+            if ((srResponse.status == "ok") && (srResponse.message == "No results found.")) {
+                srcRepElement.title = "No special rep (0 pending reports)";
+                srcRepElement.textContent = " No special rep (0 pending reports)";
             }
-        }).fail(function(){
-            src_rep.textContent = "Error communicating with SteamRep.com. Click here to visit the website.";
-        });
+        } else {
+            srcRepElement.title = "There might be pending reports against this user";
+            srcRepElement.textContent = "No special rep (there might be pending reports against this user)";
+        }
+    }).fail(function () {
+        src_rep.textContent = "Error communicating with SteamRep.com. Click here to visit the website.";
+    });
 }
 
 
@@ -366,27 +383,43 @@ function displaySteamInfo() {
     var srcElement = document.getElementById('steamrep_checker');
 
     var privacyParag = document.createElement('p');
-    privacyParag.appendChild(createElementWithText('b', 'Profile privacy : '));
+    var privacyBold = document.createElement('b');
+    privacyBold.textContent = 'Profile privacy : ';
+    privacyParag.appendChild(privacyBold);
     privacyParag.appendChild(document.createTextNode(privacy));
 
     var permalinkParag = document.createElement('p');
-    permalinkParag.appendChild(createElementWithText('b', 'Permalink : '));
 
-    var permalink = createElementWithText('a', 'https://steamcommunity.com/profiles/' + User.SteamID64);
+    var permalinkBold = document.createElement('b');
+    permalinkBold.textContent = 'Permalink : ';
+
+    permalinkParag.appendChild(permalinkBold);
+
+    var permalink = document.createElement('a');
+    permalink.textContent = 'https://steamcommunity.com/profiles/' + User.SteamID64;
     permalink.href = 'https://steamcommunity.com/profiles/' + User.SteamID64;
     permalink.id = 'src_profile_permalink';
+
     permalinkParag.appendChild(permalink);
 
     var pendingReportsParag = document.createElement('p');
-    pendingReportsParag.appendChild(createElementWithText('b', 'Pending reports : '));
-    var pendingReportsLink = createElementWithText('a', 'Search SteamRep Forums');
+
+    var boldPendingReports = document.createElement('b');
+    boldPendingReports.textContent = 'Pending reports : ';
+
+    pendingReportsParag.appendChild(boldPendingReports);
+
+    var pendingReportsLink = document.createElement('a');
+    pendingReportsLink.textContent = 'Search SteamRep Forums';
     pendingReportsLink.id = 'src_pending_reports';
     pendingReportsLink.href = 'http://forums.steamrep.com/search/search/?keywords=' + User.SteamID64 + '&o=date';
+
     pendingReportsParag.appendChild(pendingReportsLink);
 
     var id64Box = document.createElement('p');
 
-    var id64Label = createElementWithText('label', 'SteamID64 : ');
+    var id64Label = document.createElement('label');
+    id64Label.textContent = 'SteamID64 : ';
     id64Label.for = 'src_sid64tb';
 
     var id64Input = document.createElement('input');
@@ -539,6 +572,11 @@ function createInfoBox(title) {
 
         customizationAreaDiv.appendChild(infobox);
         leftCol.insertBefore(customizationAreaDiv, leftCol.firstElementChild);
+
+        var clearDiv = document.createElement('div');
+        clearDiv.style.clear = 'both';
+
+        document.querySelector('.profile_content_inner').appendChild(clearDiv);
     }
 }
 
