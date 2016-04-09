@@ -362,7 +362,7 @@ function findPendingReports(steamID64) {
  */
 function displaySteamInfo() {
     var src_rep = document.getElementById('src_rep');
-    src_rep.href = "http://steamrep.com/profiles/" + User.SteamID64;
+    src_rep.href = "https://steamrep.com/profiles/" + User.SteamID64;
 
     var privacy = "";
     switch (User.Privacy) {
